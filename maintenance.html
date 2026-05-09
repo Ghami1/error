@@ -1,0 +1,334 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maintenance Mode</title>
+  <meta name="description" content="bestwingshooting.com is preparing a refined digital space for curated ideas, notes, and web discoveries. Coming soon." />
+  <link rel="icon" href="https://iconape.com/wp-content/png_logo_vector/mt-helmets-logo.png" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #09062b 0%, #09062b 45%, #09062b 100%);
+      overflow: hidden;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .bg-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(56, 189, 248, 0.12);
+      filter: blur(120px);
+      border-radius: 50%;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: pulse 5s infinite ease-in-out;
+    }
+
+    .particles span {
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: rgba(255,255,255,0.35);
+      border-radius: 50%;
+      animation: floatUp linear infinite;
+      bottom: -20px;
+    }
+
+    .particles span:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
+    .particles span:nth-child(2) { left: 20%; animation-duration: 14s; animation-delay: 2s; }
+    .particles span:nth-child(3) { left: 35%; animation-duration: 11s; animation-delay: 1s; }
+    .particles span:nth-child(4) { left: 50%; animation-duration: 16s; animation-delay: 3s; }
+    .particles span:nth-child(5) { left: 65%; animation-duration: 12s; animation-delay: 2s; }
+    .particles span:nth-child(6) { left: 78%; animation-duration: 15s; animation-delay: 1s; }
+    .particles span:nth-child(7) { left: 90%; animation-duration: 13s; animation-delay: 4s; }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 760px;
+      padding: 50px 35px;
+      text-align: center;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 25px 60px rgb(233 219 219 / 79%);
+      animation: fadeUp 1s ease;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.12);
+      color: #7dd3fc;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border: 1px solid rgba(125, 211, 252, 0.2);
+    }
+
+    .icon-wrap {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(59,130,246,0.08));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .icon {
+      font-size: 52px;
+      filter: drop-shadow(0 0 15px rgba(125, 211, 252, 0.3));
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #cbd5e1, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .progress-box {
+      max-width: 500px;
+      margin: 0 auto 18px;
+      text-align: left;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 14px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 78%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #22c55e, #38bdf8);
+      background-size: 200% 100%;
+      animation: shine 3s linear infinite;
+      box-shadow: 0 0 20px rgba(56,189,248,0.35);
+    }
+
+    .info {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .info-box {
+      min-width: 160px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .info-box strong {
+      display: block;
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #94a3b8;
+      letter-spacing: 0.4px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.7;
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.08);
+      }
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(0.4);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 38px 22px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .icon-wrap {
+        width: 90px;
+        height: 90px;
+      }
+
+      .icon {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="card">
+    <div class="badge">Website Maintenance</div>
+
+    <div class="icon-wrap">
+      <div class="icon">⚙️</div>
+    </div>
+
+    <h1>Kami Sedang Melakukan Peningkatan Sistem</h1>
+    <p>
+      Mohon maaf, website saat ini sedang dalam proses maintenance untuk meningkatkan
+      performa, keamanan, dan kenyamanan akses. Kami akan segera kembali dengan
+      tampilan dan layanan yang lebih baik.
+    </p>
+
+    <div class="progress-box">
+      <div class="progress-top">
+        <span>Proses Update Sistem</span>
+        <span>78%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="info-box">
+        <strong>Status</strong>
+        Sedang diperbarui
+      </div>
+      <div class="info-box">
+        <strong>Layanan</strong>
+        Akan segera online
+      </div>
+      <div class="info-box">
+        <strong>Terima Kasih</strong>
+        Atas kesabaran Anda
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 All Rights Reserved
+    </div>
+  </div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"7429ed365e48434b9619901abb25eb2b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"760cce4ccebb40dd986f021bda146b92","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"dfdca4ed0e94460cacb96277cd512ba8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

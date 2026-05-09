@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>502 Bad Gateway - Glitch</title>
+    <style>
+        @keyframes glitch {
+            0% { text-shadow: 0 0 5px #f00; }
+            20% { text-shadow: -2px 0 #0f0, 2px 0 #00f; }
+            40% { text-shadow: 2px 0 #0f0, -2px 0 #00f; }
+            60% { text-shadow: -2px 0 #00f, 2px 0 #0f0; }
+            80% { text-shadow: 2px 0 #00f, -2px 0 #0f0; }
+            100% { text-shadow: 0 0 5px #f00; }
+        }
+        @keyframes countdown {
+            0% { clip-path: inset(0 100% 0 0); }
+            100% { clip-path: inset(0 0 0 0); }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 255, 0, 0.1) 10px,
+                rgba(0, 255, 0, 0.1) 20px
+            );
+        }
+        .container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+            animation: glitch 3s infinite;
+        }
+        .error-code {
+            font-size: 10rem;
+            letter-spacing: -8px;
+            font-weight: bold;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+            margin: 20px 0;
+            animation: glitch 5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .error-code::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -2px 0 #ff0;
+            top: 0;
+            color: #0f0;
+            background: #000;
+            overflow: hidden;
+            clip-path: inset(0 90% 0 0);
+            animation: countdown 3s linear infinite alternate;
+        }
+        .error-code::after {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            text-shadow: -2px 0 #00f;
+            top: 0;
+            color: #0f0;
+            background: #000;
+            overflow: hidden;
+            clip-path: inset(0 80% 0 0);
+            animation: countdown 1.5s linear infinite alternate-reverse;
+        }
+        p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: #0f0;
+        }
+        .btn {
+            display: inline-block;
+            margin: 15px;
+            padding: 12px 28px;
+            background: #000;
+            color: #0f0;
+            text-decoration: none;
+            border: 2px solid #0f0;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #0f0;
+            color: #000;
+            box-shadow: 0 0 20px #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code" data-text="502">502</div>
+        <h1>Bad Gateway</h1>
+        <p>Koneksi terputus... tetapi sinyal masih ada.</p>
+        <p>Di balik noise ini, ada yang sedang mencoba membuka jalan.</p>
+        <p>Jika kamu bisa membaca ini... berarti ia hampir sukses.</p>
+        <a href="javascript:history.back()" class="btn">Kembali</a>
+        <a href="/" class="btn">Beranda</a>
+    </div>
+</body>
+</html>
